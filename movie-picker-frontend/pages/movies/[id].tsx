@@ -1,12 +1,17 @@
 import {GetStaticPaths, GetStaticProps} from 'next'
+import MovieLayout from '../../components/layouts/movie-layout'
+import MovieDetails from '../../components/movie-details'
+import MovieGraph from '../../components/movie-graph'
 import { MovieData } from '../../models/movie'
 import { loadMovie, loadMovies } from '../../services/movies-service'
 
 const Movie = ({ movie } : { movie: MovieData }) => {
+
   return (
-    <div>
-      <span>{movie.title}</span>
-    </div>
+    <MovieLayout
+      graph={<MovieGraph movie={movie} />}
+      details={<MovieDetails movie={movie} />}
+    />
   )
 }
 
