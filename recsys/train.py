@@ -27,4 +27,4 @@ def train(dataset_name: str, save_path: str = None, verbose: bool = True):
 
 
 if __name__ == '__main__':
-    train('1M', save_path='saved_recommenders')
+    train('small', save_path='saved_recommenders')
