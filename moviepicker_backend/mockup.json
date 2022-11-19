@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {
+      "name": "test_movie",
+      "id": "1",
+      "type": "movie",
+      "imdb_id": "1",
+      "links": [1,2,3,3],
+      "image": "dsmdsk",
+      "provider": "Disney Plus+"
+    },
+    {
+      "name": "George Clooney",
+      "id": "",
+      "type": "actor",
+      "image": "image",
+      "description" : "description"
+    }
+  ]
+}
