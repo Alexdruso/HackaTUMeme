@@ -14,7 +14,6 @@ def train(dataset_name: str, save_path: str = None, verbose: bool = True):
     if verbose:
         print('Data loaded!')
 
-    print(dataset.ratings)
     recommender = Recommender.adapt(item_knn.ItemItem(20))
 
     urm = dataset.ratings[['user', 'item', 'rating']]
