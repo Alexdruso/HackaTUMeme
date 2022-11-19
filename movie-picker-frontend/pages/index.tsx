@@ -4,7 +4,15 @@ import RatedNotification from '../components/notifications/rated'
 import WatchNotification from '../components/notifications/watch'
 import styles from '../styles/Home.module.css'
 
+
 export default function Home() {
+    return (
+        <div className={styles.container}>
+            <Head>
+                <title>MoviePicker</title>
+                <meta name="description" content="MoviePicker - personalized movie finder."/>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
 
   return (
     <Layout>
