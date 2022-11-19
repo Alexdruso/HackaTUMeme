@@ -1,4 +1,5 @@
 import SearchInput from "./search-input"
+import UserImage from "./user-image"
 
 export default function Navbar() {
   return (
@@ -7,6 +8,7 @@ export default function Navbar() {
         <img src="/streampicker_logo.svg" alt="StreamPicker - Streaming Guide"></img>
       </div>
       <SearchInput />
+      <UserImage />
     </div>
   )
 }
