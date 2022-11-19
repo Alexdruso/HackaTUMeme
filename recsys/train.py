@@ -2,6 +2,7 @@ import os.path
 
 import pandas as pd
 from lenskit.algorithms import item_knn, Recommender
+from lenskit.algorithms.basic import Fallback, Popular
 from binpickle import dump
 
 from utils.datasets import datasets
@@ -14,7 +15,7 @@ def train(dataset_name: str, save_path: str = None, verbose: bool = True):
     if verbose:
         print('Data loaded!')
 
-    recommender = Recommender.adapt(item_knn.ItemItem(20))
+    recommender = Recommender.adapt(item_knn.ItemItem(nnbrs=100, feedback='implicit'))
 
     urm = dataset.ratings[['user', 'item', 'rating']]
     recommender.fit(urm)
