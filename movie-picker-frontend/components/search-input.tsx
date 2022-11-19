@@ -6,7 +6,6 @@ function SearchInput() {
       </svg>
       <input
       className="
-        font-serif
         focus:ring-2
         focus:ring-purple
         focus:outline-none
