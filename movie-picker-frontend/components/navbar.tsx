@@ -1,3 +1,4 @@
+import DropdownMenu from "./dropdown-menu"
 import SearchInput from "./search-input"
 import UserImage from "./user-image"
 
@@ -9,7 +10,9 @@ export default function Navbar() {
       </div>
       <div className="grow"></div>
       <SearchInput />
-      <UserImage />
+      <DropdownMenu items={[{ name: "Logout", to: { func: ()=> {}, link: ""}}]}>
+        <UserImage />
+      </DropdownMenu>
     </div>
   )
 }
