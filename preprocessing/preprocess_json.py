@@ -2,6 +2,7 @@ import json
 import os
 
 from lenskit.datasets import MovieLens, ML1M
+from collections import Counter
 
 datasets = {
     '1M': ML1M,
@@ -31,11 +32,20 @@ def preprocess(
     files = map(load_json, files)
     files = (item for catalogue in files for item in catalogue)
     files = filter(lambda item: item['serie'] == '0', files)
-    files = list(filter(lambda item: item['imdb_id'] in imdbIds, files))
+    files = filter(lambda item: item['imdb_id'] in imdbIds, files)
+    result = []
+    seen = set()
 
-    with open(os.path.join(output_dir, 'dataset.json'), 'w') as f:
-        json.dump(files, f)
+    for file in files:
+        if file['imdb_id'] not in seen:
+            seen.add(file['imdb_id'])
+            result.append(file)
+        else:
+            print('found duplicate')
+
+    with open(os.path.join(output_dir, 'datasetv2.json'), 'w') as f:
+        json.dump(result, f)
 
 
 if __name__ == '__main__':
-    preprocess('data', 'out')
+    preprocess('out', 'out')
