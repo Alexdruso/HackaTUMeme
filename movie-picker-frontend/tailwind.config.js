@@ -14,6 +14,9 @@ module.exports = {
       grey: {
         dark: '#6b6b6b',
         light: '#e6e6e6',
+      },
+      imdb: {
+        yellow: '#f5c518',
       }
     },
   },
