@@ -130,4 +130,5 @@ dmypy.json
 
 .idea
 */data
+*/out
 recsys/saved_recommenders
