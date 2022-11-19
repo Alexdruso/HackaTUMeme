@@ -19,19 +19,24 @@ Where item is the Movielens id and imdbId is the imdbId
 
 """""
 
-def imdb_to_movielens(links: pd.DataFrame, id: int) -> int:
-    """
-    This function takes as input an imdb id and returns the equivalent Movielens id
-    :param id: the imdb id
-    :return: the Movielens id
-    """
-    return
 
+class IdMapping:
+    def __init__(self, links: pd.DataFrame):
+        imdb_to_movielens: dict = {}
+        movielens_to_imdb: dict = {}
 
-def movielens_to_imdb(links: pd.DataFrame, id: int):
-    """
-    This function takes as input a Movielens id and returns the equivalent imdb id
-    :param id: the Movielens id
-    :return: the imdb id
-    """
-    return
+    def imdb_to_movielens(id: int) -> int:
+        """
+        This function takes as input an imdb id and returns the equivalent Movielens id
+        :param id: the imdb id
+        :return: the Movielens id
+        """
+        return
+
+    def movielens_to_imdb(links: pd.DataFrame, id: int):
+        """
+        This function takes as input a Movielens id and returns the equivalent imdb id
+        :param id: the Movielens id
+        :return: the imdb id
+        """
+        return
