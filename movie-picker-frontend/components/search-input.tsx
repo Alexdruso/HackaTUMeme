@@ -16,7 +16,7 @@ function SearchInput() {
         text-grey-dark
         placeholder-grey-dark
         rounded-full
-        py-2
+        py-1
         pl-10
         ring-1
         ring-grey-dark
