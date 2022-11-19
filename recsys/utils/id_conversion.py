@@ -1,4 +1,5 @@
 import pandas as pd
+from .datasets import datasets
 
 """""
 links.head()
@@ -18,25 +19,12 @@ item
 Where item is the Movielens id and imdbId is the imdbId
 
 """""
+links = datasets['small']().links
 
+movielens_to_imdb = {
+    index: row['imdbId'] for index, row in links.iterrows()
+}
 
-class IdMapping:
-    def __init__(self, links: pd.DataFrame):
-        imdb_to_movielens: dict = {}
-        movielens_to_imdb: dict = {}
-
-    def imdb_to_movielens(id: int) -> int:
-        """
-        This function takes as input an imdb id and returns the equivalent Movielens id
-        :param id: the imdb id
-        :return: the Movielens id
-        """
-        return
-
-    def movielens_to_imdb(links: pd.DataFrame, id: int):
-        """
-        This function takes as input a Movielens id and returns the equivalent imdb id
-        :param id: the Movielens id
-        :return: the imdb id
-        """
-        return
+imdb_to_movielens = {
+    value: key for key, value in movielens_to_imdb.items()
+}
