@@ -131,6 +131,4 @@ dmypy.json
 .idea
 */data
 */out
-recsys/saved_recommenders/*
-graph/utils/saved_recommenders/*
-graph/utils/data/*
+recsys/saved_recommenders
