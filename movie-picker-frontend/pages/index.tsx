@@ -23,15 +23,15 @@ export default function Home() {
         <div className={styles.container}>
           <div className='flex flex-col gap-10'>
             {
-              notifications.map((notification) => notification.type == 'rating' ?
+              notifications.map((notification, id) => notification.type == 'rating' ?
                 <RatedNotification
-                  key={notification.date}
+                  key={id}
                   rating={notification.rating || 0}
                   movie={notification.movie}
                   user={getUser(notification.user)}
                 ></RatedNotification> :
                 <CommentNotification
-                key={notification.date}
+                key={id}
                   comment={notification.comment || ''}
                   movie={notification.movie}
                   user={getUser(notification.user)}
