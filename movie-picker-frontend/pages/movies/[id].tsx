@@ -4,15 +4,18 @@ import MovieDetails from '../../components/movie-details'
 import MovieGraph from '../../components/movie-graph'
 import {MovieData} from '../../models/movie'
 import {Graph} from "../../models/graph"
+import Layout from '../../components/layouts/layout'
 
 
 const Movie = ({ movie, graphData }: { movie: MovieData, graphData: Graph }) => {
 
     return (
+      <Layout>
         <MovieLayout
             graph={<MovieGraph graphData={graphData}/>}
             details={<MovieDetails movie={movie}/>}
         />
+      </Layout>
     )
 }
 
