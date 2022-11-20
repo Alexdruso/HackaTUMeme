@@ -32,8 +32,8 @@ def get_node(request):
     graph["nodes"].append(nodes[node_id])
     for link in nodes[node_id]["links"]:
         graph["nodes"].append(nodes[link])
-        graph["links"].append({"source": node_id, "destination": link})
-        graph["links"].append({"source": link, "destination": node_id})
+        graph["links"].append({"source": node_id, "target": link})
+        graph["links"].append({"source": link, "target": node_id})
     imdb_ids = []
     for node in graph["nodes"]:
         if node["type"] == "movie":
@@ -49,8 +49,8 @@ def get_node(request):
         for node in graph["nodes"]:
             if node["type"] == "movie" and node["imdb"] == str(predicted_node) and node["id"] != node_id:
                 graph["nodes"].append(node)
-                graph["links"].append({"source": node_id, "destination": node["id"]})
-                graph["links"].append({"source": node["id"], "destination": node_id})
+                graph["links"].append({"source": node_id, "target": node["id"]})
+                graph["links"].append({"source": node["id"], "target": node_id})
                 break
     return HttpResponse(json.dumps(graph))
 
