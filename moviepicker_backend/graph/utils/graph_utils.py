@@ -18,7 +18,9 @@ def generate_nodes():
                 "image": movie["posters"].split(", ")[0] if movie["posters"] is not None else None,
                 "type": "movie",
                 "links": links,
-                "imdb": movie["imdb_id"]
+                "imdb": movie["imdb_id"],
+                "year": movie["year"],
+                "genres": movie["genres"]
             }
     return result
 
