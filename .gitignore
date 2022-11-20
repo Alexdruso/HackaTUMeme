@@ -132,3 +132,5 @@ dmypy.json
 */data
 */out
 recsys/saved_recommenders
+moviepicker_backend/graph/utils/saved_recommenders/model.bpk
+moviepicker_backend/graph/utils/data/ml-small/*
