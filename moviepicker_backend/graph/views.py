@@ -12,6 +12,16 @@ def get_all(request):
     return HttpResponse(json.dumps(graph))
 
 
+def get_info(request):
+    node_id = request.GET.get("node_id")
+    graph = {}
+    nodes = json.load(open("nodes.json", "r"))
+    for node in nodes:
+        if "name" in nodes[node] and nodes[node]["name"] == node_id:
+            graph = nodes[node]
+    return HttpResponse(json.dumps(graph))
+
+
 def get_node(request):
     node_id = request.GET.get("node_id")
     node_history = request.GET.get("user_session")
@@ -37,7 +47,7 @@ def get_node(request):
                                72856: 1.0, 78062: 1.0, 105643: 1.0, 1190080: 1.0}, imdb_ids, 5)
     for predicted_node in predicted_nodes:
         for node in graph["nodes"]:
-            if node["type"] == "movie" and node["imdb"] == str(predicted_node):
+            if node["type"] == "movie" and node["imdb"] == str(predicted_node) and node["id"] != node_id:
                 graph["nodes"].append(node)
                 graph["links"].append({"source": node_id, "destination": node["id"]})
                 graph["links"].append({"source": node["id"], "destination": node_id})
