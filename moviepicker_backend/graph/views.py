@@ -14,12 +14,8 @@ def get_all(request):
 
 def get_info(request):
     node_id = request.GET.get("node_id")
-    graph = {}
     nodes = json.load(open("nodes.json", "r"))
-    for node in nodes:
-        if "name" in nodes[node] and nodes[node]["name"] == node_id:
-            graph = nodes[node]
-    return HttpResponse(json.dumps(graph))
+    return HttpResponse(json.dumps(nodes[node_id]))
 
 
 def get_node(request):
