@@ -24,13 +24,15 @@ const MovieGraph = ({ graphData }: { graphData: Graph }) => {
     const onClickNode = function (nodeId: any) {
         console.log(nodeId)
         if (nodeId !== graphData.focusedNodeId) {
-
+            for (let node in graphData.nodes) {
+                // @ts-ignore
+                if(node[nodeId]!=undefined && node["type"]=="movie"){
+                    alert("Hi")
+                }
+            }
+            console.log(graphData.nodes)
         }
     };
-
-    const onClickLink = function (source: any, target: any) {
-        window.alert(`Clicked link between ${source} and ${target}`);
-    }
 
     return (
         graphConfig ? <div className='w-full h-full shadow-xl graph-container'>
@@ -40,7 +42,6 @@ const MovieGraph = ({ graphData }: { graphData: Graph }) => {
                 className="max-h-full max-w-full bg-grey-dark"
                 config={graphConfig}
                 onClickNode={onClickNode}
-                onClickLink={onClickLink}
             />
         </div> : null
     )
