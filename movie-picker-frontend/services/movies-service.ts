@@ -1,5 +1,5 @@
 import { MovieData } from '../models/movie'
-import moviesData from '../data/movies_data.json' assert {type: 'json'}
+import moviesData from '../mock-data/movies_data.json' assert {type: 'json'}
 
 export const loadMovies = () : MovieData[] => {
   return moviesData

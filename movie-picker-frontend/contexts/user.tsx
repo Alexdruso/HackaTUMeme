@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
-import usersData from '../data/users.js'
-import ratingData from '../data/ratings.js'
-import reviewsData from '../data/reviews.js'
+import usersData from '../mock-data/users.js'
+import ratingData from '../mock-data/ratings.js'
+import reviewsData from '../mock-data/reviews.js'
 import { Notification } from '../models/notification.js'
 import { User } from '../models/user.js'
 
