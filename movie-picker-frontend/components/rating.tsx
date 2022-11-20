@@ -4,8 +4,8 @@ function Rating({ rating, imdbRating }: { rating: number, imdbRating: number }) 
   const getRating = () => {
     return Array.from(Array(5).keys()).map(level => {
       return (
-        (rating > level) ? <img src={`/rating/rating-${Number(level) + 1}.svg`} alt="StreamPicker - Rating"></img>
-      : <img src='/rating/rating-0.svg' alt="StreamPicker - Rating"></img>
+        (rating > level) ? <img src={`/rating/rating-${Number(level) + 1}.svg`} alt="StreamPicker - Rating" key={level}></img>
+      : <img src='/rating/rating-0.svg' alt="StreamPicker - Rating" key={level}></img>
       )
     })
   }
