@@ -28,6 +28,10 @@ def get_node(request):
     graph["nodes"].append(nodes[node_id])
     for link in nodes[node_id]["links"]:
         graph["nodes"].append(nodes[link])
+        for sub_link in nodes[link]["links"]:
+            graph["nodes"].append(nodes[sub_link])
+            graph["links"].append({"source": sub_link, "target": link})
+            graph["links"].append({"source": link, "target": sub_link})
         graph["links"].append({"source": node_id, "target": link})
         graph["links"].append({"source": link, "target": node_id})
     imdb_ids = []
