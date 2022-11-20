@@ -4,7 +4,7 @@ import {Graph} from "react-d3-graph";
 import {useEffect, useState} from "react";
 
 
-const MovieGraph = ({movie, graphData}: { movie: MovieData, graphData: Graph }) => {
+const MovieGraph = ({ graphData }: { graphData: Graph }) => {
     const [graphConfig, setGraphConfig] = useState<Object>()
 
     useEffect(() => {
@@ -20,6 +20,7 @@ const MovieGraph = ({movie, graphData}: { movie: MovieData, graphData: Graph }) 
             },
         })
     }, [])
+
     const onClickNode = function (nodeId: any) {
         console.log(nodeId)
         if (nodeId !== graphData.focusedNodeId) {
@@ -29,9 +30,10 @@ const MovieGraph = ({movie, graphData}: { movie: MovieData, graphData: Graph }) 
 
     const onClickLink = function (source: any, target: any) {
         window.alert(`Clicked link between ${source} and ${target}`);
-    };
+    }
+
     return (
-        <div className='w-full h-full shadow-xl graph-container'>
+        graphConfig ? <div className='w-full h-full shadow-xl graph-container'>
             <Graph
                 id="graph-id"
                 data={graphData}
@@ -40,7 +42,7 @@ const MovieGraph = ({movie, graphData}: { movie: MovieData, graphData: Graph }) 
                 onClickNode={onClickNode}
                 onClickLink={onClickLink}
             />
-        </div>
+        </div> : null
     )
 }
 

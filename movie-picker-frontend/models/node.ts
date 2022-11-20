@@ -3,7 +3,7 @@ export type NodeGraph = {
     "id": string,
     "type": string,
     "imdb_id": string,
-    "links": [1, 2, 3, 3],
+    "links"?: string[],
     "image": string,
     "provider": string,
     "labelPosition": string,
