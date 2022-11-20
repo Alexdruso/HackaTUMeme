@@ -1,2 +1,1 @@
-release: python manage.py migrate
-web: gunicorn moviepicker_backend.wsgi
+web: python manage.py runserver
